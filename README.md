@@ -4,7 +4,7 @@ GitHub Flow와 PR 기반 코드 리뷰를 실습하는 3인 팀입니다. 이 �
 
 ## 팀원 소개
 
-- [Member 1](team/member-1.md) — `<이름 / 역할>`
+- [김현중](team/member-1.md) — 팀 소개 문서 및 협업 규칙 담당
 - [Member 2](team/member-2.md) — `<이름 / 역할>`
 - [Member 3](team/member-3.md) — `<이름 / 역할>`
 
