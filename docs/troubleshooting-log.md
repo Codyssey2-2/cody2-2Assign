@@ -54,13 +54,35 @@ HEAD가 이전 `4cf24e4`로 이동했고, `git status --short` 결과가 `A  doc
 
 ## 3. `git revert` — 작성 예정
 
-### 참여자 / 상황 / 명령 / 결과 / 선택 이유
+### 참여자
+
+- 실행: 오철호 (Member 2)
+- 확인: 오철호 (Member 2)
+
+### 상황 / 재현 절차
+
+`feature/21-cheolho-git-revert` 브랜치에서 `team/member-2.md`의 "한마디" 문구에 오타(`중요핟.`)를 낸 커밋을 만들어 원격에 push했습니다. 이미 원격에 공유된 커밋이라 `reset`이나 강제 push 대신, 새 취소 커밋을 만드는 `git revert`로 되돌렸습니다.
+
+### 명령과 결과
 
 ```bash
-# 원격에 공유된 잘못된 커밋을 새 취소 커밋으로 되돌림
-git revert <commit-sha>
-git push origin <feature-branch>
+$ git add team/member-2.md
+$ git commit -m "docs: update member-2 comment"
+[feature/21-cheolho-git-revert dd40cfa] docs: update member-2 comment
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ git push -u origin feature/21-cheolho-git-revert
+ * [new branch]      feature/21-cheolho-git-revert -> feature/21-cheolho-git-revert
+
+$ git revert --no-edit dd40cfac8be511a8d5b2e46de8d3def1d0fc2c53
+[feature/21-cheolho-git-revert 35fd318] Revert "docs: update member-2 comment"
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+$ git push origin feature/21-cheolho-git-revert
+   dd40cfa..35fd318  feature/21-cheolho-git-revert -> feature/21-cheolho-git-revert
 ```
+
+### 왜 이 방법을 선택했는가
+
+잘못된 커밋(`dd40cfa`)이 이미 원격 브랜치에 push되어 다른 사람이 내려받았을 수 있으므로, 히스토리를 지우는 `reset --hard`나 강제 push 대신 새로운 취소 커밋을 추가하는 `git revert`를 사용했습니다. 이렇게 하면 원본 실수와 수정 이력이 모두 남아 추적이 가능하고, 공유 브랜치의 히스토리를 깨뜨리지 않습니다.
 
 ## 4. `git stash` / `git stash pop` — 작성 예정
 
