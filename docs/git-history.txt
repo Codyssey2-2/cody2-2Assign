@@ -1,7 +1,0 @@
-# Git History Evidence
-
-최종 제출 직전에 아래 명령의 결과를 이 파일에 붙여 넣습니다.
-
-```bash
-git log --oneline --graph --all
-```
