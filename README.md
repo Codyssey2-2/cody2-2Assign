@@ -6,7 +6,7 @@ GitHub Flow와 PR 기반 코드 리뷰를 실습하는 3인 팀입니다. 이 �
 
 - [Member 1](team/member-1.md) — `<이름 / 역할>`
 - [Member 2](team/member-2.md) — `<이름 / 역할>`
-- [Member 3](team/member-3.md) — `<이름 / 역할>`
+- [Member 3](team/member-3.md) — 김수정 / 팀원
 
 ## 협업 문서
 
