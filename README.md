@@ -1,12 +1,12 @@
-# 팀 소개 — `<팀명>`
+# 팀 소개 — Codyssey2-2
 
 GitHub Flow와 PR 기반 코드 리뷰를 실습하는 3인 팀입니다. 이 저장소의 결과물은 팀원 소개 문서이며, 모든 변경은 Issue와 Pull Request를 통해 관리합니다.
 
 ## 팀원 소개
 
 - [김현중](team/member-1.md) — 팀 소개 문서 및 협업 규칙 담당
-- [Member 2](team/member-2.md) — 오철호 / 팀원
-- [Member 3](team/member-3.md) — 김수정 / 팀원
+- [오철호](team/member-2.md) — 팀원
+- [김수정](team/member-3.md) — 팀원
 
 ## 협업 문서
 
