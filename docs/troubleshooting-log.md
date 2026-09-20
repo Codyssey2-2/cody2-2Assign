@@ -84,13 +84,35 @@ $ git push origin feature/21-cheolho-git-revert
 
 잘못된 커밋(`dd40cfa`)이 이미 원격 브랜치에 push되어 다른 사람이 내려받았을 수 있으므로, 히스토리를 지우는 `reset --hard`나 강제 push 대신 새로운 취소 커밋을 추가하는 `git revert`를 사용했습니다. 이렇게 하면 원본 실수와 수정 이력이 모두 남아 추적이 가능하고, 공유 브랜치의 히스토리를 깨뜨리지 않습니다.
 
-## 4. `git stash` / `git stash pop` — 작성 예정
+## 4. `git stash` / `git stash pop` — 완료
 
-### 참여자 / 상황 / 명령 / 결과 / 선택 이유
+### 참여자
+
+- 실행: `김수정 (Member 3)`
+- 관련 Issue: `#20`
+
+### 상황 / 재현 절차
+
+`feature/20-stash-troubleshooting` 브랜치에서 `team/member-3.md`를 수정하던 중, 커밋하지 않은 작업을 유지한 채 다른 브랜치로 전환해야 하는 상황을 재현했습니다.
+
+### 명령과 결과
 
 ```bash
-git stash push -m "wip: member profile draft"
-git switch <other-branch>
-git switch <original-branch>
+git stash push -m "stash practice member 3"
+git status
+git stash list
+
+git switch main
+git switch feature/20-stash-troubleshooting
+
 git stash pop
+git status
 ```
+
+`git stash` 실행 후 working tree가 clean 상태가 되었고, `git stash list`에서 임시 보관된 작업을 확인했습니다.
+
+`main` 브랜치로 전환한 뒤 다시 작업 브랜치로 돌아와 `git stash pop`을 실행하자 `team/member-3.md`의 수정사항이 정상적으로 복원되었습니다.
+
+### 왜 이 방법을 선택했는가
+
+아직 커밋하지 않은 작업을 잃지 않고 잠시 보관한 상태에서 다른 브랜치로 전환하기 위해 `git stash`를 사용했습니다. 이후 원래 작업 브랜치에서 `git stash pop`을 사용해 보관했던 변경사항을 다시 복원했습니다.
